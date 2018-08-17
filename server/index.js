@@ -5,8 +5,18 @@ const io = require( 'socket.io' )( server );
 
 app.use( express.static( 'client' ) );
 
+let messages = [
+	{
+		id: 1,
+		text: 'Bienvenido .....',
+		nick: 'Bot 1'
+	}
+];
+
 io.on( 'connection', ( socket ) => {
 	console.log( `Nueva conexión desde la IP ${socket.handshake.address}` );
+
+	socket.emit( 'messages', messages );
 } );
 
 server.listen( 6677, () => {
