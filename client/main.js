@@ -2,7 +2,7 @@ let socket = io.connect( 'http://192.168.1.5:6677', { 'forceNew': true } );
 
 socket.on( 'messages', ( data ) => {
 	console.log( data );
-	render(data);
+	render( data );
 } );
 
 function render( data ) {
