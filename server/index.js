@@ -17,6 +17,11 @@ io.on( 'connection', ( socket ) => {
 	console.log( `Nueva conexión desde la IP ${socket.handshake.address}` );
 
 	socket.emit( 'messages', messages );
+
+	socket.on( 'add-message', ( message ) => {
+		messages.push( message );
+		io.sockets.emit( 'messages', messages );
+	} );
 } );
 
 server.listen( 6677, () => {

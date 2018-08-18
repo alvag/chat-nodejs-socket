@@ -5,12 +5,37 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Chat App</title>
+
+	<style>
+		#mensajes {
+			width: 95%;
+			max-width: 400px;
+			height: 350px;
+			overflow-y: scroll;
+			border: 1px solid #EEEEEE;
+			box-shadow: 0 0 20px #CCCCCC inset;
+		}
+
+		.message {
+			margin: 20px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid #CCCCCC;
+			background: white;
+		}
+	</style>
 </head>
 <body>
 
 <h1>Chat con Socket.io y NodeJS</h1>
 
 <div id="mensajes"></div>
+
+<form onsubmit="return adMessage(this)">
+	<input type="text" id="nick" placeholder="Nick">
+	<textarea name="" id="text" placeholder="Mensaje"></textarea>
+	<input type="submit" value="Enviar">
+</form>
 
 
 <script src="/socket.io/socket.io.js"></script>
